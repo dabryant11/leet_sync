@@ -21,9 +21,8 @@ var kWeakestRows = function(mat, k) {
 
     
     let answer = []
-    for ( let counter = 0; counter < k; counter ++) {
-        answer.push(kHeap[counter][0])
-        
+    for ( let row = 0; row < k; row ++) {
+        answer.push(kHeap[row][0])     
     }
     
     return answer
