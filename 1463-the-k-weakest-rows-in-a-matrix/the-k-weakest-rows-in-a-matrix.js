@@ -8,22 +8,21 @@
  //save index
  //lowest is weaker
 var kWeakestRows = function(mat, k) {
-    let kHeap = []
+    let distilledArr = []
 
-    for (let i=0; i < mat.length; i++) {
+    for (let i=0; i< mat.length; i++){
         let sum = 0
-        for (let j=0; j < mat[i].length; j++) {
-            sum += mat[i][j]
-        }          
-        kHeap.push([i,sum])
+        for (let j=0; j< mat[i].length; j++){
+            if ( mat[i][j] === 1) sum += mat[i][j]
+        }   
+        distilledArr.push([i, sum])
     }
-    kHeap.sort((a, b) => a[1] - b[1]);
 
-    
+    distilledArr.sort((a,b) => a[1] - b[1])
+
     let answer = []
-    for ( let row = 0; row < k; row ++) {
-        answer.push(kHeap[row][0])     
+    for (let counter =0; counter< k; counter ++){
+        answer.push(distilledArr[counter][0])
     }
-    
-    return answer
+    return answer 
 };
