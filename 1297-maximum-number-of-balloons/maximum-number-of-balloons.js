@@ -4,30 +4,32 @@
  */
 var maxNumberOfBalloons = function(text) {
     let hashMap = {
-        "b": 0,
-        "a": 0,
-        "l": 0,
-        "o": 0,
-        "n": 0,
-    };
+        "b":0,
+        "a":0,
+        "l":0,
+        "o":0,
+        "n":0,
+    }
     
-    for (let i = 0; i < text.length; i++) {
-        if (text[i] === "l" || text[i] === "o") {
-            hashMap[text[i]] += 0.5; // Increment by 0.5 for "l" and "o"
-        } else if (hashMap[text[i]] !== undefined) {
-            hashMap[text[i]]++; // Increment by 1 for other characters in the map
-        }
+    for (let i =0;i< text.length; i++) {
+        if (hashMap.hasOwnProperty(text[i])) {
+        if (text[i] === "l" || text[i] === "o") hashMap[text[i]] += 0.5
+        // else if (hashMap[text[i]]) hashMap[text[i]] ++
+        else hashMap[text[i]] ++
+    }
     }
 
     let minIndex = Infinity; 
 
     for (let key in hashMap) {
-        if (key === "l" || key === "o") {
-            minIndex = Math.min(minIndex, Math.floor(hashMap[key]));
-        } else {
-            minIndex = Math.min(minIndex, hashMap[key]);
-        }
+            if ( key === "o"|| key === "l" ) minIndex = Math.min(minIndex,Math.floor(hashMap[key]))
+            else{
+                minIndex = Math.min(hashMap[key],minIndex)
+            }
+        
     }
 
-    return minIndex;
+
+
+    return minIndex
 };
