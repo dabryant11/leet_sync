@@ -4,26 +4,24 @@
  * @return {number[]}
  */
 
- //find first 0
- //save index
- //lowest is weaker
 var kWeakestRows = function(mat, k) {
-    let newArr = []
+  let newArr = []
 
-    for (let i=0; i< mat.length; i++) {
-        let sum = 0
-        for (let j=0; j< mat[i].length; j++) {
-            if ( mat[i][j] === 1 ) sum ++
-        }
-        newArr.push([i,sum])
+  for (let i =0; i< mat.length; i++){
+    let sum = 0
+    for (let j =0; j< mat[i].length; j++){
+        if ( mat[i][j] === 1) sum ++
     }
+    newArr.push([i,sum] )
+  }
 
-    newArr.sort((a,b) => a[1]-b[1])
-    let ans = []
-    for (let x=0; x<k; x++ ){
-        ans.push(newArr[x][0])
-    }
+  newArr.sort((a,b) => a[1]- b[1])
 
-    return ans
-    
+  let ans =[]
+
+  for (let x=0; x < k; x++) {
+    ans.push(newArr[x][0])
+  }
+
+  return ans
 };
