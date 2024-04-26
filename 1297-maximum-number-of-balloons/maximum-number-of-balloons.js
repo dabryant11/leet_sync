@@ -13,10 +13,9 @@ var maxNumberOfBalloons = function(text) {
     
     for (let i =0;i< text.length; i++) {
         if (hashMap.hasOwnProperty(text[i])) {
-        if (text[i] === "l" || text[i] === "o") hashMap[text[i]] += 0.5
-        // else if (hashMap[text[i]]) hashMap[text[i]] ++
-        else hashMap[text[i]] ++
-    }
+            if (text[i] === "l" || text[i] === "o") hashMap[text[i]] += 0.5
+            else hashMap[text[i]] ++
+        }
     }
 
     let minIndex = Infinity; 
