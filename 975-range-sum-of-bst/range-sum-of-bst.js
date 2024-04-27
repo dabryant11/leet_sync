@@ -13,24 +13,16 @@
  * @return {number}
  */
 
-// function calSum(root, low, high, sum) {
-//     if (!root) return sum; // Return sum if root is null
-//     if (root.val >= low && root.val <= high) {
-//         sum += root.val;
-//     }
-//     // Update sum with values from left and right subtrees
-//     sum = calSum(root.left, low, high, sum);
-//     sum = calSum(root.right, low, high, sum);
-//     return sum;
-// }
 
-// var rangeSumBST = function(root, low, high) {
-//     let sum = 0;
-//     return calSum(root, low, high, sum);
-// };
+
+var rangeSumBST = function(root, low, high) {
+    let sum = 0
+    return calSum(root, low, high, sum)
+
+}; 
 
 function calSum(root, low, high, sum) {
-    if(!root) return sum
+    if(!root) return sum 
     if ( root.val >= low && root.val <= high){
         sum += root.val
     }
@@ -39,10 +31,3 @@ function calSum(root, low, high, sum) {
 
     return sum
 }
-
-
-var rangeSumBST = function(root, low, high) {
-    let sum = 0
-    return calSum(root, low, high, sum)
-
-};
