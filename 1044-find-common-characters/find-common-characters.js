@@ -3,7 +3,7 @@
  * @return {string[]}
  */
 var commonChars = function(words) {
-     let result = []
+    let result = []
     for(let i = 0 ; i < words[0].length ; i++)
         for(let j = 1 ; j < words.length ; j++){
             if(!words[j].includes(words[0][i])) break;
