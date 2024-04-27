@@ -29,7 +29,10 @@ var smallerNumbersThanCurrent = function(nums) {
         for (let j = 0; j < sortedNums.length; j++) {
             if (sortedNums[j] < nums[i]) {
                 count++;
-            } else break
+            } else {
+                break
+            }
+                
         }
 
         ans.push(count);
