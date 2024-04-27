@@ -3,30 +3,14 @@
  * @return {string[]}
  */
 var commonChars = function(words) {
-    let common = {}
-
-    for (let char of words[0]) {
-        common[char] =  (common[char] || 0) +1
-    }
-
-    for (let i = 1; i < words.length; i++) {
-        let charCount = {}
-        for (let char of words[i]) { 
-            charCount[char] =  (charCount[char] || 0) +1
+     let result = []
+    for(let i = 0 ; i < words[0].length ; i++)
+        for(let j = 1 ; j < words.length ; j++){
+            if(!words[j].includes(words[0][i])) break;
+            else  
+                words[j] = words[j].replace(words[0][i],'')
+            if(j == words.length - 1) result.push(words[0][i]);
         }
-        for (let char in common) {
-            charCount[char] ? common[char] = Math.min(common[char], charCount[char]) : delete common[char]
-        }
-    }
-
-    let ans = []
-
-       for (let char in common) {
-        for (let i = 0; i < common[char]; i++) {
-            ans.push(char);
-        }
-    }
-
-    return ans
+    return result;
     
 };
