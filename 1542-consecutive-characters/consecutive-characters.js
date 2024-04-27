@@ -83,7 +83,8 @@
 // };
 
 var maxPower = function (s) {
-    let res = curr = 1;
+    let res = 1
+    let curr = 1;
     for (let i= 0; i< s.length; i++) {
         if (s[i] === s[i + 1]) curr++;
         else {
