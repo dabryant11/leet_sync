@@ -18,20 +18,24 @@
 //     }
 //     return ans
 // };
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var smallerNumbersThanCurrent = function (nums) {
-  let res = [];
+var smallerNumbersThanCurrent = function(nums) {
+    let sortedNums = nums.slice().sort((a, b) => a - b); // Make a copy and sort it
+    let ans = [];
 
-  for (const i of nums) {
-    const c = nums.reduce((count, num) => {
-      if (num < i) count++;
-      return count;
-    }, 0);
-    res.push(c);
-  }
+    for (let i = 0; i < nums.length; i++) {
+        let count = 0;
 
-  return res;
+        // Find how many numbers are smaller than the current number in the sorted array
+        for (let j = 0; j < sortedNums.length; j++) {
+            if (sortedNums[j] < nums[i]) {
+                count++;
+            } else {
+                break; // Since the array is sorted, no need to continue checking
+            }
+        }
+
+        ans.push(count);
+    }
+
+    return ans;
 };
