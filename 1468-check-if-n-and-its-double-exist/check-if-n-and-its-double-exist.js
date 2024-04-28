@@ -12,7 +12,7 @@ var checkIfExist = function(arr) {
         
         if (arr[i] == 0) {
             count[0] ++
-            if (count[0] >= 2) return true
+            if (count[0] > 1) return true
         }
 
         
