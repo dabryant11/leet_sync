@@ -9,18 +9,21 @@ var averageValue = function(nums) {
         if(num % 2 == 0 && num % 3 == 0) temp.push(num) 
     }
 
-    // for(i = 0; i < temp.length; i++){ 
-    //     sum += temp[i]
-    // }
 
- for ( let num of temp) {
+    for ( let num of temp) {
         sum += num
     }
 
     sum = sum / temp.length; 
-    if(sum > 0 ){
+    if(temp.length ){
         return Math.floor(sum) 	
     } 
+
+// if (temp.length) ans = ans / temp.length
+
+//     return ans
+
+
 
     return 0
 };
