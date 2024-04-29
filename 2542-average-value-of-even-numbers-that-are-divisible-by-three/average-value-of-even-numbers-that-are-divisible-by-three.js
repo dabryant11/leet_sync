@@ -5,12 +5,12 @@
 var averageValue = function(nums) {
     let temp = []
     let sum = 0;
-
-    nums.forEach(val =>{
-        if(val % 2 == 0 && val % 3 == 0){ 
-            temp.push(val) 
-        }
-    })
+    for (let num of nums) {
+        if(num % 2 == 0 && num % 3 == 0) temp.push(num) 
+    }
+    // nums.forEach(val =>{
+    //     }
+    // })
 
     for(i = 0; i < temp.length; i++){ 
         sum += temp[i]
