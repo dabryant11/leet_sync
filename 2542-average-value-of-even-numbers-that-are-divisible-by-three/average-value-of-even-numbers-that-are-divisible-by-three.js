@@ -14,9 +14,9 @@ var averageValue = function(nums) {
         sum += num
     }
 
-    sum = sum / temp.length; 
+    // sum = sum / temp.length; 
     if(temp.length ){
-        return Math.floor(sum) 	
+        return Math.floor(sum / temp.length) 	
     } 
 
 // if (temp.length) ans = ans / temp.length
