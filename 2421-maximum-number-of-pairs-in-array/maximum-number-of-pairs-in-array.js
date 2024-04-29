@@ -3,15 +3,6 @@
  * @return {number[]}
  */
 var numberOfPairs = function(nums) {
-    //iterate
-    // add to map count
-    // equal 2 then minus 2 to remove
-    //  add to pair count
-    // iterate val of map
-    // greater than zero add to ans
-    //  add to single count
-    // push pair count single count
-
     let count = {}
     let pair = 0 
     let single = 0 
@@ -29,11 +20,9 @@ var numberOfPairs = function(nums) {
     }
     
     for (let key of Object.keys(count)) {
-        if ( count[key] == 1) {
-                single ++
-        }
+        if ( count[key] == 1) single ++
     }
-    ans.push(pair)
-    ans.push(single)
+    ans.push(pair, single)
+    
     return ans
 };
