@@ -20,10 +20,10 @@
 var findFinalValue = function(nums, original) {
     let newOriginal = original;
     nums.sort((a,b) => a-b)
-    for (let i=0; i < nums.length; i++) {
-console.log("nums[i]", nums[i])
+    for (let num of nums) {
+console.log("num", num)
 console.log("newOriginal", newOriginal)
-        if (nums[i] === newOriginal) {
+        if (num === newOriginal) {
             newOriginal *= 2;
         }
     }
