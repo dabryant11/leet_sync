@@ -8,13 +8,15 @@ var averageValue = function(nums) {
     for (let num of nums) {
         if(num % 2 == 0 && num % 3 == 0) temp.push(num) 
     }
-    // nums.forEach(val =>{
-    //     }
-    // })
 
-    for(i = 0; i < temp.length; i++){ 
-        sum += temp[i]
+    // for(i = 0; i < temp.length; i++){ 
+    //     sum += temp[i]
+    // }
+
+ for ( let num of temp) {
+        sum += num
     }
+
     sum = sum / temp.length; 
     if(sum > 0 ){
         return Math.floor(sum) 	
