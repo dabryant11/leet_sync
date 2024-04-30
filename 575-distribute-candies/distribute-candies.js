@@ -17,7 +17,6 @@ var distributeCandies = function(candyType) {
             unq++
         }
     }
-console.log("unq", unq)
-console.log("maxNum", maxNum)
+
     return unq > maxNum ? maxNum : unq
 };
