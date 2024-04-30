@@ -12,19 +12,17 @@
  * @return {number}
  */
 var sumOfLeftLeaves = function(root) {
-    if (!root) return 0; // Base case: empty tree
-
-    return helper(root.left, true) + helper(root.right, false);
+   if (!root) return 0
+   return helper(root.left, true) + helper(root.right, false)
 };
 
-function helper(node, isLeft) {
-    if (!node) return 0; // Base case: empty node
-
-    if (!node.left && !node.right && isLeft) {
-        // If the node is a leaf and is a left child, return its value
-        return node.val;
+function helper(root, isLeft) {
+   if (!root) return 0
+    if (!root.left && !root.right && isLeft) {
+        return root.val
     }
+   return helper(root.left, true) + helper(root.right, false)
 
-    // Recursively calculate the sum of left leaves in the left and right subtrees
-    return helper(node.left, true) + helper(node.right, false);
+
+ 
 }
