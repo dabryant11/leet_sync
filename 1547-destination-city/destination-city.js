@@ -3,14 +3,14 @@
  * @return {string}
  */
 var destCity = function (paths) {
-  const srcSet = new Set()
+  const srcSet = []
   const dests = []
   for (const [src, dest] of paths) {
-    srcSet.add(src)
+    srcSet.push(src)
     dests.push(dest)
   }
   for (const dest of dests) {
-    if (!srcSet.has(dest)) {
+    if (!srcSet.includes(dest)) {
       return dest
     }
   }
