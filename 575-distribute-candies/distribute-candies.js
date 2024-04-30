@@ -16,7 +16,9 @@ var distributeCandies = function(candyType) {
             count[num] = 1
             unq++
         }
+        if (unq === Math.floor(candyType.length/2)) return unq;
+
     }
 
-    return unq > maxNum ? maxNum : unq
+    return unq 
 };
