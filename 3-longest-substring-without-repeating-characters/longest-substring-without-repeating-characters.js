@@ -36,10 +36,12 @@ var lengthOfLongestSubstring = function(s) {
 
     for (let i = 0; i < s.length; i++) {
         let char = s[i];
+        //same
         if (count[char] !== undefined && count[char] >= start) {
             start = count[char] + 1;
             currSum = i - start;
         }
+        //not same
         currSum++;
         count[char] = i;
         maxSum = Math.max(maxSum, currSum);
