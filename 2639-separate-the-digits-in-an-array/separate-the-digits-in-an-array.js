@@ -8,7 +8,6 @@ var separateDigits = function(nums) {
     for (let i=0; i<nums.length;i++){
         string+= nums[i]
     }
-console.log("string", string)
     for (let i=0;i<string.length;i++){
         ans.push(string[i])
     }
