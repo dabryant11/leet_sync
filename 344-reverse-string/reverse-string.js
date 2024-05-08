@@ -9,7 +9,6 @@ var reverseString = function(s) {
         temp = s[left] 
         s[left] = s[right] 
         s[right] = temp
-        // s[right] = temp
         left ++
         right --
     }
