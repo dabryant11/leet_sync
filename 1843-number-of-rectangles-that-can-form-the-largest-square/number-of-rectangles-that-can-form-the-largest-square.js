@@ -3,8 +3,7 @@
  * @return {number}
  */
 var countGoodRectangles = function(rectangles) {
-    // iterate
-    // find min then push to arr
+    
     let counter = 1
     let maxSq = -1
     for ( let sq of rectangles ) {
