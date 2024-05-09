@@ -10,8 +10,7 @@ var removeOuterParentheses = function(s) {
     while (pointer < s.length){
         if (s[pointer] === "("){
             if ( stack.length > 0) ans += "("
-        
-        stack.push("(")
+            stack.push("(")
         }else if (s[pointer] === ")"){
             stack.pop()
             if ( stack.length > 0) ans += ")"
