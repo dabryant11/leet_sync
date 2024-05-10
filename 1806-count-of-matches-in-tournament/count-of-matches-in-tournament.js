@@ -2,15 +2,15 @@
  * @param {number} n
  * @return {number}
  */
-var numberOfMatches = function(n) {
+var numberOfMatches = function(teams) {
    
-    var ans = 0;
-    while(n>1){
-        ans+= Math.floor(n/2);
-        if(n%2==1)
-            n = (n-1)/2 +1;
+    var matches = 0;
+    while(teams>1){
+        matches+= Math.floor(teams/2);
+        if(teams%2==1)
+            teams = (teams-1)/2 +1;
         else
-            n = n/2;
+            teams = teams/2;
     }
-    return ans;
+    return matches;
 };
