@@ -1,17 +1,17 @@
-/**
- * @param {number[]} nums
- * @return {number}
- */
 var numIdenticalPairs = function(nums) {
-  
+    let frequencyMap = {}
+    let count = 0;
 
-    let ans = 0
-    for ( let i=0; i< nums.length; i++){
-        for ( let j=i+1; j< nums.length; j++){
-            console.log("nums[i]", nums[i])
-            console.log("nums[j]", nums[j])
-            if (nums[i] == nums[j]) ans ++
-        }
+    // Count the frequency of each number
+    for (let num of nums) {
+        if (!frequencyMap[num]) frequencyMap[num] = 0
+        frequencyMap[num] ++
     }
-    return ans
+
+    // Calculate the number of identical pairs
+    for (let freq of Object.values(frequencyMap)) {
+        count += (freq * (freq - 1)) / 2; // Formula for counting pairs
+    }
+
+    return count;
 };
