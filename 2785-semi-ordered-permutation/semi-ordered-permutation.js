@@ -18,18 +18,10 @@ var semiOrderedPermutation = function(nums) {
 
     if (highestIndex > lowestIndex) {
         counter += Math.abs(highestIndex - (nums.length - 1));
-        console.log("counter1", counter)
         counter += Math.abs(lowestIndex - 0);
-        console.log("counter2", counter)
     } else {
         counter += Math.abs(lowestIndex - 0);
-        
-        console.log("lowestIndex", lowestIndex)
-        console.log("counter3", counter)
-        console.log("highestIndex", highestIndex)
-        let highVal = (nums.length - 1) - highestIndex
-        counter += highVal
-        console.log("counter4", counter)
+        counter += Math.abs((nums.length - 1) - highestIndex);
         counter --
     }
 
