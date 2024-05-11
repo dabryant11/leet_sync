@@ -21,7 +21,7 @@ var semiOrderedPermutation = function(nums) {
         counter += Math.abs(lowestIndex - 0);
     } else {
         counter += Math.abs(lowestIndex - 0);
-        counter += Math.abs((nums.length - 1) - highestIndex);
+        counter += Math.abs(highestIndex - (nums.length - 1) );
         counter --
     }
 
