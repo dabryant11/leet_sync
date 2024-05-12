@@ -8,6 +8,7 @@ var appendCharacters = function(s, t) {
     let len = t.length
     for(let i=0;i<s.length;i++){
         s[i]===t[j] && j++
+      
         if(len===j) return 0
     }
     return len-j
