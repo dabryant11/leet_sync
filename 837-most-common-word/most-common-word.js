@@ -15,7 +15,7 @@ var mostCommonWord = function(paragraph, banned) {
             count[word] = (count[word] || 0) + 1;
         }
     }
-console.log("count", count)
+    
     // Find the most common word
     let mostCommon = '';
     let maxCount = 0;
