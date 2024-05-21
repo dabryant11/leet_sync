@@ -14,7 +14,6 @@ var makeEqual = function(words) {
     }
 
     for(let key in count){
-        console.log("count", count)
         if (count[key] % words.length !== 0) return false
     }
     return true
