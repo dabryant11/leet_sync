@@ -11,7 +11,6 @@ var halvesAreAlike = function(s) {
         if (i >= s.length/2) firstHalf = false
         if (vowels.includes(s[i]) && firstHalf) firsthVow ++
         if (vowels.includes(s[i]) && !firstHalf) sechVow ++
-
     }
 
     return firsthVow === sechVow
