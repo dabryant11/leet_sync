@@ -4,15 +4,10 @@
  * @return {number}
  */
 var countOdds = function(low, high) {
-    let ans = 0
-    while (low<=high){
-        if (low % 2 !== 0) {
-            ans ++
-
-        low +=2
-        }else {
-        low ++
-        }
+    if (low % 2 == 0 && high % 2 == 0) {
+        return Math.floor((high - low) / 2)
     }
-    return ans
+    else {
+        return Math.ceil((high - low+1) / 2);
+    }
 };
