@@ -9,7 +9,7 @@ var check = function(nums) {
        if(nums[i]>nums[i+1]) order++
    }
    
-    nums[0]<nums[nums.length-1] && order++
+    if (nums[0]<nums[nums.length-1]) order++
     
     return order<2
 };
