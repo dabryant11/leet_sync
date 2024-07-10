@@ -1,11 +1,10 @@
 var numIslands = function(grid) {
-    if (!grid.length || !grid[0].length)
-        return 0;
-    
     const rows = grid.length;
     const cols = grid[0].length;
     let islands = 0;
-        console.log("begin grid", grid)
+    
+    if (!rows || !cols)
+        return 0;
     
     const dfs = (row, col) => {
         if (row < 0 || col < 0 || row >= rows || col >= cols || grid[row][col] !== '1')
