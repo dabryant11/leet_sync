@@ -5,7 +5,7 @@ var numIslands = function(grid) {
 
     if (!rows || !cols) return 0
 
-    let dfs = (row,col) => {
+    function dfs(row,col){
         if (row < 0 || col < 0 || row >= rows || col >= cols || grid[row][col] !=='1') return
         grid[row][col] = '0'
 
