@@ -3,38 +3,43 @@
  * @return {number[][]}
  */
 var updateMatrix = function(mat) {
-    const rows = mat.length;
-    const cols = mat[0].length;
-    const directions = [[1, 0], [-1, 0], [0, 1], [0, -1]];
-    const queue = [];
-    const dist = Array.from({ length: rows }, () => Array(cols).fill(Infinity));
+    let rows = mat.length;
+    let cols = mat[0].length;
+    let newMat = Array.from({ length: rows }, () => Array(cols).fill(Infinity));
+    let queue = [];
 
-    // Enqueue all cells with 0 and set their distance to 0
-    for (let i = 0; i < rows; i++) {
-        for (let j = 0; j < cols; j++) {
-            if (mat[i][j] === 0) {
-                queue.push([i, j]);
-                dist[i][j] = 0;
+    if (!rows || !cols) return newMat;
+
+    // Initialize the queue with all cells containing 0 and set their distance to 0
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            if (mat[row][col] === 0) {
+                newMat[row][col] = 0;
+                queue.push([row, col]);
             }
         }
     }
 
-    // BFS from all 0 cells
+    // Directions for moving up, down, left, and right
+    let directions = [
+        [0, 1], [0, -1], [1, 0], [-1, 0]
+    ];
+
+    // Perform BFS
     while (queue.length > 0) {
-        const [i, j] = queue.shift();
-        
-        for (const [di, dj] of directions) {
-            const ni = i + di;
-            const nj = j + dj;
-            
-            if (ni >= 0 && ni < rows && nj >= 0 && nj < cols) {
-                if (dist[ni][nj] > dist[i][j] + 1) {
-                    dist[ni][nj] = dist[i][j] + 1;
-                    queue.push([ni, nj]);
-                }
+        let [currentRow, currentCol] = queue.shift();
+
+        for (let [dx, dy] of directions) {
+            let newRow = currentRow + dx;
+            let newCol = currentCol + dy;
+
+            // Check if the new cell is within bounds and can be updated
+            if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols && newMat[newRow][newCol] === Infinity) {
+                newMat[newRow][newCol] = newMat[currentRow][currentCol] + 1;
+                queue.push([newRow, newCol]);
             }
         }
     }
 
-    return dist;
+    return newMat;
 };
