@@ -3,15 +3,13 @@
  * @return {number}
  */
 var maximum69Number  = function(num) {
-    let pointer = 0
-    let numString = num.toString().split('')
-    for ( let i=0; i< numString.length; i++){
-        if (numString[i] === "6") {
-            numString[i] = "9"
-            break
+    let newNum = num.toString().split('');  // Convert number to string, then to array
+    for (let i = 0; i < newNum.length; i++) {
+        if (newNum[i] === '6') {
+            newNum[i] = '9';  // Modify the first '6' to '9'
+            break;  // Stop after changing the first '6'
         }
     }
-
-    return parseInt(numString.join(''))
-
+    
+    return parseInt(newNum.join(''));  // Convert array back to string and then to number
 };
