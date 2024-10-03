@@ -19,8 +19,12 @@ var longestPalindrome = function(s) {
     Object.values(map).forEach(count => {
         // Add the largest even part of the count
         ans += Math.floor(count / 2) * 2;
+        // ans += count
         // Check if there is any odd count
         if (count % 2 === 1) oddCount = true;
+        // else {
+        //     ans+= count
+        // }
     });
 
     // If there is at least one odd count, we can place one character in the middle
