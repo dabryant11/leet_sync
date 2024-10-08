@@ -3,7 +3,7 @@
  * @return {number}
  */
 var findMaxConsecutiveOnes = function(nums) {
-    let maxLen = 0
+    let maxLen = -Infinity
     let currLen = 0
     let fast = 0
     while (fast < nums.length){
