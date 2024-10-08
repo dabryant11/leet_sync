@@ -14,7 +14,6 @@ var judgeCircle = function(moves) {
         if (moo[i] === "L") coord[1] --
         
     }
-    if (coord[0] === 0 && coord[1] === 0) return true
-    else return false
+    return coord[0] === 0 && coord[1] === 0
   
 };
