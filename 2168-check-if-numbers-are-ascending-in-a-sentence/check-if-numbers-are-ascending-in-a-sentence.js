@@ -14,9 +14,9 @@ var areNumbersAscending = function(s) {
             const currentNum = parseInt(word);
 
             // If current number is not greater than the previous, return false
-            if (currentNum <= prevNum) {
-                return false;
-            }
+            if (currentNum <= prevNum) return false;
+                
+            
             // Update prevNum to the current number
             prevNum = currentNum;
         }
