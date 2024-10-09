@@ -4,7 +4,7 @@
  */
 var areNumbersAscending = function(s) {
     let words = s.split(" ")
-    let prevNum = -Infinity 
+    let prevNum = -Infinity
 
     for ( let word of words){
         if (!isNaN(word)){
@@ -12,7 +12,6 @@ var areNumbersAscending = function(s) {
             if (prevNum >= currNum) return false
             prevNum = currNum
         }
-
     }
     return true
 };
