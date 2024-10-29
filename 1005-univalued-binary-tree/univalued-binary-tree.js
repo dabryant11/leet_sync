@@ -11,15 +11,13 @@
  * @return {boolean}
  */
 var isUnivalTree = function(root) {
-    if (!root) return true
-    let val = root.val
-    
-    function unival(node){
-        if (!node) return true
-        if (node.val !== val) return false
+  if ( !root) return true
+  let val = root.val
+  function checkUni(node){
+    if ( !node) return true
+    if ( node.val !== val) return false
+    return checkUni(node.left) && checkUni(node.right)
+  }
 
-        return unival(node.left) && unival(node.right)
-    }
-
-    return unival(root)
+  return checkUni(root)
  };
