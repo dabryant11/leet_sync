@@ -3,9 +3,9 @@
  * @return {string}
  */
 var reverseOnlyLetters = function(s) {
-    let ans = s.split("")
     let left = 0
     let right = s.length -1
+    let ans = s.split("")
 
     let isLetter = (char) => /^[a-zA-Z]$/.test(char)
 
