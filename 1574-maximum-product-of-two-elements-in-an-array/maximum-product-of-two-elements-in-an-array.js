@@ -4,20 +4,12 @@
  */
 var maxProduct = function(nums) {
     let highest = 0
-    let secHighest = 0
-
-    for ( let i=0;i<nums.length;i++){
-        let curr = nums[i]
-        // if (curr > secHighest) highest = Math.max(curr,highest)
-        // else secHighest = Math.max(highest,secHighest)
-
-
-        if (curr > highest) {
-            secHighest = highest;
-            highest = curr;
-        } else if (curr > secHighest) {
-            secHighest = curr;
-        }
+    let secondHighest = 0
+    for (let i = 0;i<nums.length;i++){
+        if ( nums[i] > highest ){
+            secondHighest = highest
+            highest = nums[i]
+        } else if (nums[i] > secondHighest) secondHighest = nums[i]
     }
-    return (highest - 1) * (secHighest - 1)
+    return (highest -1) * (secondHighest -1)
 };
