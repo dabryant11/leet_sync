@@ -3,12 +3,20 @@
  * @return {number}
  */
 var addDigits = function(num) {
-    let newNum = num.toString()
-    let currNum = 0
+    // If num is already a single digit, return it
+    if (num < 10) {
+        return num;
+    }
 
-    for (let i=0;i<newNum.length;i++) currNum += parseInt(newNum[i])
-    
-    if (currNum >= 10) return addDigits(currNum)
-    else return currNum
-    
+    // Initialize sum to store the digit sum
+    let sum = 0;
+
+    // Calculate the sum of digits
+    while (num > 0) {
+        sum += num % 10;  // Add last digit of num to sum
+        num = Math.floor(num / 10);  // Remove the last digit
+    }
+
+    // Recursively call addDigits with the calculated sum
+    return addDigits(sum);
 };
