@@ -3,13 +3,16 @@
  * @return {number}
  */
 var maxProduct = function(nums) {
-    let highest = 0
-    let secondHighest = 0
-    for (let i = 0;i<nums.length;i++){
-        if ( nums[i] > highest ){
-            secondHighest = highest
-            highest = nums[i]
-        } else if (nums[i] > secondHighest) secondHighest = nums[i]
+    let high = 0
+    let secHigh = 0
+
+    for (let i=0;i<nums.length;i++){
+        if(nums[i] > high){
+            secHigh = high
+            high = nums[i]
+        } else if (nums[i] > secHigh){
+            secHigh = nums[i]
+        }
     }
-    return (highest -1) * (secondHighest -1)
+    return (high - 1) * (secHigh -1) 
 };
