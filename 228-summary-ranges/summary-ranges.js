@@ -9,11 +9,8 @@ var summaryRanges = function (nums) {
     if(nums[curr] - nums[curr -1] === 1) continue
     if(start === nums[curr -1]){
         ans.push(`${start}`)
-    }
-    else{
-        ans.push(`${start}->${nums[curr-1]}`)
-    }
-
+    } else ans.push(`${start}->${nums[curr-1]}`)
+    
     start = nums[curr]
    }
    return ans
