@@ -11,19 +11,15 @@
  * @return {boolean}
  */
 var isUnivalTree = function(root) {
-    if (!root) return true; // An empty tree is considered univalued by definition
+    if (!root) return true
+    let val = root.val
+    
+    function unival(node){
+        if (!node) return true
+        if (node.val !== val) return false
 
-    const value = root.val;
-
-    function checkUnival(node) {
-        if (!node) return true; // Reached a leaf node
-        
-        // If current node's value is not equal to the root's value, return false
-        if (node.val !== value) return false;
-
-        // Recursively check left and right children
-        return checkUnival(node.left) && checkUnival(node.right);
+        return unival(node.left) && unival(node.right)
     }
 
-    return checkUnival(root);
+    return unival(root)
  };
