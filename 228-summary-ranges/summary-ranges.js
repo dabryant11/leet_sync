@@ -3,17 +3,17 @@
  * @return {string[]}
  */
 var summaryRanges = function (nums) {
-    let result = [];
+    let ans = [];
     let start = nums[0];
     for (let i = 1; i <= nums.length; i++) {
         if (nums[i] - nums[i - 1] === 1) continue;
         if (start === nums[i - 1]) {
-            result.push(`${start}`);
+            ans.push(`${start}`);
         }
         else {
-            result.push(`${start}->${nums[i - 1]}`);
+            ans.push(`${start}->${nums[i - 1]}`);
         }
         start = nums[i];
     }
-    return result;
+    return ans;
 };
