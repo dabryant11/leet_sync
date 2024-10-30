@@ -2,7 +2,6 @@
  * @param {string} s
  * @return {string}
  */
-
 var minRemoveToMakeValid = function(s) {
     let stack = []
     let str = s.split("")
@@ -19,7 +18,7 @@ var minRemoveToMakeValid = function(s) {
         }
     }
 
-    for (let i of stack){
+    for ( let i of stack){
         str[i] = ""
     }
 
