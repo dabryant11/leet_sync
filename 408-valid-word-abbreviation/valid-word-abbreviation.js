@@ -1,3 +1,8 @@
+/**
+ * @param {string} word
+ * @param {string} abbr
+ * @return {boolean}
+ */
 var validWordAbbreviation = function(word, abbr) {
     // setup two pointers and current number
     let i = 0, j = 0, number = 0;
