@@ -40,18 +40,17 @@
  * @param {NestedInteger[]} nestedList
  * @return {number}
  */
-var depthSum = function(nestedList) {
-    const helper = (list, depth) => {
-        let sum = 0;
-        for (let ni of list) {
-            if (ni.isInteger()) {
-                sum += ni.getInteger() * depth;
-            } else {
-                sum += helper(ni.getList(), depth + 1);
-            }
-        }
-        return sum;
-    };
-    return helper(nestedList, 1);
+var depthSum = function(nestedList, depth = 1) {
+    let sum = 0
+  
+  for (let i = 0; i < nestedList.length; i++) {
+    if (nestedList[i].isInteger()) {
+      sum += nestedList[i].getInteger() * depth
+    } else {
+      sum += depthSum(nestedList[i].getList(), depth + 1)
+    }
+  }
+  
+  return sum
     
 };
