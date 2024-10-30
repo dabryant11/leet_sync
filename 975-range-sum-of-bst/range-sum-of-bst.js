@@ -12,22 +12,28 @@
  * @param {number} high
  * @return {number}
  */
-
-
-
 var rangeSumBST = function(root, low, high) {
-    let sum = 0
-    return calSum(root, low, high, sum)
+    let sum = 0;
 
-}; 
+    function helper(node) {
+        if (!node) return;
 
-function calSum(root, low, high, sum) {
-    if(!root) return sum 
-    if ( root.val >= low && root.val <= high){
-        sum += root.val
+        // Check if the current node's value is within the range
+        if (node.val >= low && node.val <= high) {
+            sum += node.val;
+        }
+
+        // Only explore left subtree if node's value is greater than `low`
+        if (node.val > low) {
+            helper(node.left);
+        }
+
+        // Only explore right subtree if node's value is less than `high`
+        if (node.val < high) {
+            helper(node.right);
+        }
     }
-    sum = calSum(root.left, low, high, sum)
-    sum = calSum(root.right, low, high, sum)
 
-    return sum
-}
+    helper(root);
+    return sum;
+};
