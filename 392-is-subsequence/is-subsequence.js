@@ -7,10 +7,9 @@ var isSubsequence = function(s, t) {
     let sPointer = 0
     let tPointer = 0
 
-    while (sPointer < s.length && tPointer < t.length){
-        if (s[sPointer] === t[tPointer]) sPointer++
+    while ( tPointer < t.length && sPointer < s.length){
+        if (t[tPointer] === s[sPointer]) sPointer ++
         tPointer ++
-    }   
-
+    }
     return sPointer === s.length
 };
