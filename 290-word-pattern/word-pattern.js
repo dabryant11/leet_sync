@@ -5,27 +5,24 @@
  */
 var wordPattern = function(pattern, s) {
     let words = s.split(" ")
-    if ( pattern.length !== words.length) return false
 
-    let wordToPattern = new Map()
-    let patternToWord = new Map()
+    if (words.length !== pattern.length) return false
 
-    for ( let i=0;i<pattern.length;i++){
-        let word = words[i]
+    let charToWord = new Map()
+    let wordToChar = new Map()
+
+    for (let i=0;i<words.length;i++){
         let char = pattern[i]
-        if(wordToPattern.has(word)){
-            if(wordToPattern.get(word) !== char) return false
+        let word = words[i]
+        if(charToWord.has(char)){
+            if(charToWord.get(char) !== word) return false
+        } else{
+            charToWord.set(char, word)
         }
-        else {
-            wordToPattern.set(word,char)
-            
-        }
-
-        if(patternToWord.has(char)){
-            if(patternToWord.get(char) !== word) return false
-        }else {
-            patternToWord.set(char, word)
-
+        if(wordToChar.has(word)){
+            if(wordToChar.get(word) !== char) return false
+        } else{
+            wordToChar.set(word, char)
         }
     }
     return true
