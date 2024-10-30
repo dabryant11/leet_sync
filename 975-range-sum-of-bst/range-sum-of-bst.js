@@ -13,17 +13,16 @@
  * @return {number}
  */
 var rangeSumBST = function(root, low, high) {
-
     let sum = 0
+
     function helper(node){
-        if(!node) return
-        if (node.val >= low && node.val <= high) sum += node.val
-        if (node.val >= low ) helper(node.left)
-        if (node.val <= high ) helper(node.right)
+        if (!node) return
+        if(node.val <= high && node.val >= low) sum += node.val
+        if(node.val <= high) helper(node.right)
+        if(node.val >= low) helper(node.left)
         
     }
 
     helper(root)
-    
     return sum
 };
