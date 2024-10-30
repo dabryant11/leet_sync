@@ -4,30 +4,29 @@
  * @return {boolean}
  */
 var wordPattern = function(pattern, s) {
-    const words = s.split(' ');
-    if (pattern.length !== words.length) return false; // Different lengths mean no possible bijection
+    let words = s.split(" ")
+    if ( pattern.length !== words.length) return false
 
-    const charToWord = new Map();
-    const wordToChar = new Map();
+    let wordToPattern = new Map()
+    let patternToWord = new Map()
 
-    for (let i = 0; i < pattern.length; i++) {
-        const char = pattern[i];
-        const word = words[i];
-
-        // Check if there's an existing mapping for char to word
-        if (charToWord.has(char)) {
-            if (charToWord.get(char) !== word) return false;
-        } else {
-            charToWord.set(char, word);
+    for ( let i=0;i<pattern.length;i++){
+        let word = words[i]
+        let char = pattern[i]
+        if(wordToPattern.has(word)){
+            if(wordToPattern.get(word) !== char) return false
+        }
+        else {
+            wordToPattern.set(word,char)
+            
         }
 
-        // Check if there's an existing mapping for word to char
-        if (wordToChar.has(word)) {
-            if (wordToChar.get(word) !== char) return false;
-        } else {
-            wordToChar.set(word, char);
+        if(patternToWord.has(char)){
+            if(patternToWord.get(char) !== word) return false
+        }else {
+            patternToWord.set(char, word)
+
         }
     }
-
-    return true;
+    return true
 };
