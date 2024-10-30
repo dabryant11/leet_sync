@@ -10,18 +10,16 @@ var minRemoveToMakeValid = function(s) {
         let ch = s[i]
         if(ch == "("){
             stack.push(i)
-        }else{
+        } else{
             if(ch == ")"){
-                if(stack.length) stack.pop()
+                if (stack.length) stack.pop()
                 else str[i] = ""
             }
         }
     }
-
-    for ( let i of stack){
+    for (let i of stack){
         str[i] = ""
     }
 
     return str.join("")
-
 };
