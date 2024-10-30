@@ -4,21 +4,21 @@
  * @return {boolean}
  */
 var validWordAbbreviation = function(word, abbr) {
-    let i = 0, j = 0, number = 0;
+    let abp = 0, wp = 0, number = 0;
 
-    while (i < abbr.length && j < word.length) {
-        if (!isNaN(abbr[i])) {
-            number = number * 10 + Number(abbr[i]);
+    while (abp < abbr.length && wp < word.length) {
+        if (!isNaN(abbr[abp])) {
+            number = number * 10 + Number(abbr[abp]);
             if (number === 0) return false;
-            i++;
+            abp++;
         } else if (number > 0) {
-            j += number;
+            wp += number;
             number = 0;
-        } else if (abbr[i] == word[j]) {
-            i++;
-            j++;
+        } else if (abbr[abp] == word[wp]) {
+            abp++;
+            wp++;
         } else return false;
     }
 
-    return i === abbr.length && j + number === word.length;
+    return abp === abbr.length && wp + number === word.length;
 };
