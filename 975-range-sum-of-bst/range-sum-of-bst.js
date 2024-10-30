@@ -13,27 +13,17 @@
  * @return {number}
  */
 var rangeSumBST = function(root, low, high) {
-    let sum = 0;
 
-    function helper(node) {
-        if (!node) return;
-
-        // Check if the current node's value is within the range
-        if (node.val >= low && node.val <= high) {
-            sum += node.val;
-        }
-
-        // Only explore left subtree if node's value is greater than `low`
-        if (node.val > low) {
-            helper(node.left);
-        }
-
-        // Only explore right subtree if node's value is less than `high`
-        if (node.val < high) {
-            helper(node.right);
-        }
+    let sum = 0
+    function helper(node){
+        if(!node) return
+        if (node.val >= low && node.val <= high) sum += node.val
+        if (node.val >= low ) helper(node.left)
+        if (node.val <= high ) helper(node.right)
+        
     }
 
-    helper(root);
-    return sum;
+    helper(root)
+    
+    return sum
 };
