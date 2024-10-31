@@ -4,13 +4,20 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-    const numIndices = new Map();
+    let map = new Map();
+
     for (let i = 0; i < nums.length; i++) {
-        const complement = target - nums[i];
-        if (numIndices.has(complement)) {
-            return [numIndices.get(complement), i];
+        let complement = target - nums[i];
+
+        // Check if the complement exists in the map
+        if (map.has(complement)) {
+            return [map.get(complement), i];
         }
-        numIndices.set(nums[i], i);
+
+        // Store the index of the current number
+        map.set(nums[i], i);
     }
-    return []; 
+
+    // Return an empty array if no solution is found (for safety)
+    return [];
 };
