@@ -16,9 +16,9 @@ var maxProfit = function(prices) {
         let currentProfit = prices[i] - minPrice;
         
         // Update profit if the current profit is greater than the previous maximum profit
-        if (currentProfit > profit) {
-            profit = currentProfit;
-        }
+        // if (currentProfit > profit) {
+            profit = Math.max(currentProfit, profit)
+        // }
     }
     
     return profit;
