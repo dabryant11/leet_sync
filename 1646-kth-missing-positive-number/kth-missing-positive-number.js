@@ -11,7 +11,7 @@ var findKthPositive = function(arr, k) {
 
     while (missNum < k) {
         // If current is not in arr, it is a missing number
-        if (i >= arr.length || arr[i] !== current) {
+        if (i > arr.length -1 || arr[i] !== current) {
             missNum++;
             if (missNum === k) return current;
         } else {
