@@ -7,7 +7,7 @@ var simplifyPath = function(path) {
   let directories = path.split("/")
 
   for (let dir of directories){
-    if(!dir || dir === ".") continue
+    if(!dir || dir == ".") continue
     else if(dir === "..") {
         if(stack.length>0) stack.pop()
     }
