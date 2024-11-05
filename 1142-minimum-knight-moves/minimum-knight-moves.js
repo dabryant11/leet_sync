@@ -4,27 +4,36 @@
  * @return {number}
  */
 var minKnightMoves = function(x, y) {    
-    let dir = [[-2, -1], [-2, +1], //up
-               [-1, -2], [+1, -2], //left
-               [+2, -1], [+2, +1], //down
-               [-1, +2], [+1, +2]]; //right
+    let directions = [
+        [2,1],
+        [-2,1],
+        [1,2],
+        [-1,2],
+        [1,-2],
+        [2,-1],
+        [-2,-1],
+        [-1,-2],
+    ]
+    let moves = 0
+    let queue = [[0,0]]
+    let visited = new Set()
     
-    let queue = [[0, 0]];
-    let moves = 0, visited = new Set();
-    while(queue.length != 0) {
-        let next = [];
-        while(queue.length != 0) {
-            let cur = queue.pop();
-            if (cur[0] == x && cur[1] == y) return moves;
-            for (let d of dir) {
-                let nextX = cur[0]+d[0], nextY = cur[1]+d[1];
-                if (!visited.has(nextX+","+nextY)) {
-                    next.push([nextX, nextY]);
-                    visited.add(nextX+","+nextY);
-                }
+    while (queue.length !== 0){
+        let next = []
+        while (queue.length !== 0){
+            let curr = queue.pop()
+            if(curr[0] === x && curr[1] === y) return moves 
+            for ( let d of directions){
+                let nextX = curr[0] + d[0]
+                let nextY = curr[1] + d[1]
+                if(!visited.has(nextX+","+nextY)){
+                    next.push([nextX,nextY])
+                    visited.add(nextX+","+nextY)
+                } 
             }
-        };
-        queue = next;
-        moves++;
-    }    
+        }
+        moves++
+        queue = next
+    }
+    
 };
