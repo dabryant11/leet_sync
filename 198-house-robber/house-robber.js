@@ -3,17 +3,17 @@
  * @return {number}
  */
 var rob = function(nums) {
-    if (nums.length === 0) return 0; // No houses to rob
-    if (nums.length === 1) return nums[0]; // Only one house to rob
+   if (nums.length === 0) return 0
+   if (nums.length === 1) return nums[0]
 
-    let prev1 = 0; // Maximum amount up to the previous house
-    let prev2 = 0; // Maximum amount up to the house before the previous one
+   let prev1 = 0
+   let prev2 = 0
 
-    for (let num of nums) {
-        let temp = prev1;
-        prev1 = Math.max(prev1, prev2 + num); // Max of robbing this house or skipping it
-        prev2 = temp; // Move prev1 to prev2 for the next iteration
-    }
+   for (let num of nums){
+    let temp = prev1
+     prev1 = Math.max(prev2 + num,prev1)
+     prev2 = temp
+   }
 
-    return prev1; // The maximum amount robbed without adjacent houses
+   return prev1
 };
