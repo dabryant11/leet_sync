@@ -8,10 +8,11 @@ var findBuildings = function(heights) {
     for (let i = heights.length-1;i>=0;i--){
         let curr = heights[i]
         if(curr > minHeight) {
-            ans.push(i)
+            ans.unshift(i)
             minHeight = curr
 
         }
     }
-    return ans.sort((a,b) => a-b)
+    // return ans.sort((a,b) => a-b)
+    return ans
 };
