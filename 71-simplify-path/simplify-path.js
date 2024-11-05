@@ -3,19 +3,15 @@
  * @return {string}
  */
 var simplifyPath = function(path) {
-  let stack = []
-  let directories = path.split("/")
+  let ans = []
+  let journey = path.split("/")
 
-  for (let dir of directories){
-    if(!dir || dir == ".") continue
-    else if(dir === "..") {
-        if(stack.length>0) stack.pop()
-    }
-    else stack.push(dir)
+  for(let level of journey){
+    if(!level || level === ".") continue
+    else if(level === ".."){
+        if(ans.length > 0) ans.pop()
+    } else ans.push(level)
   }
-
-  return "/" + stack.join("/")
-
-
+    return "/" + ans.join("/")
 };
 
