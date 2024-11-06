@@ -15,7 +15,7 @@ var sumNumbers = function(root) {
     // recursive string call
     // once the end is hit join together for a num
     // add those nums together to get an answer
-        let ans = 0;
+    let ans = 0;
     
     const dfs = (node, path) => {
         if (!node) return;
