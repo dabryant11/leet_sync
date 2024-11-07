@@ -4,27 +4,31 @@
  * @return {string}
  */
 var customSortString = function(order, s) {
-    const charCount = {};
-    for (const char of order) {
-        charCount[char] = 0;
+    let charCount = {}
+
+    for(let char of order){
+        charCount[char] = 0
     }
 
-    for (const char of s) {
-        if (charCount[char] !== undefined) {
-            charCount[char]++;
+    for(let char of s){
+        if (charCount[char] !== undefined) charCount[char] ++
+    }
+
+    let sortedS = ""
+
+    for(let char of order){
+        // if (charCount[char]){
+            sortedS += char.repeat(charCount[char])
+        // 
+    }
+
+    for(let char of s){
+        if (charCount[char] === undefined){
+            sortedS += char
         }
     }
 
-    let sortedS = '';
-    for (const char of order) {
-        sortedS += char.repeat(charCount[char]);
-    }
 
-    for (const char of s) {
-        if (!order.includes(char)) {
-            sortedS += char;
-        }
-    }
+    return sortedS
 
-    return sortedS;
 };
