@@ -4,9 +4,10 @@
  */
 var letterCombinations = function(digits) {
     let ans = []
+
     if(digits.length === 0) return ans
 
-        const map = {
+    let map = {
         2: ["a", "b", "c"],
         3: ["d", "e", "f"],
         4: ["g", "h", "i"],
@@ -26,12 +27,12 @@ var letterCombinations = function(digits) {
         let currDig = digits[idx]
         for(let letter of map[currDig]){
             path.push(letter)
-            backtrack(idx + 1,path)
+            backtrack(idx +1,path)
             path.pop()
         }
     }
 
     backtrack(0,[])
-    return ans
 
+    return ans
 };
