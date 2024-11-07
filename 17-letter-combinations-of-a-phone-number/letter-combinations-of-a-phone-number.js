@@ -3,9 +3,9 @@
  * @return {string[]}
  */
 var letterCombinations = function(digits) {
-    if (digits.length === 0) return [];
+    if(digits.length === 0) return []
 
-    const map = {
+        const map = {
         2: ["a", "b", "c"],
         3: ["d", "e", "f"],
         4: ["g", "h", "i"],
@@ -16,22 +16,20 @@ var letterCombinations = function(digits) {
         9: ["w", "x", "y", "z"]
     };
 
-    let ans = [];
-    
-    function backtrack(index, path){
-        if (index === digits.length) {
-            ans.push(path.join(""));
-            return;
+    let ans =[]
+    function dfs(idx,path){
+        if(idx === digits.length){
+            ans.push(path.join(""))
+            return
         }
-        
-        let currDigit = digits[index];
-        for (let letter of map[currDigit]) {
-            path.push(letter);
-            backtrack(index + 1, path);
-            path.pop();
+        let currDig = digits[idx]
+        for(let letter of map[currDig]){
+            path.push(letter)
+            dfs(idx+1,path)
+            path.pop()
         }
-    };
+    }
 
-    backtrack(0, []);
-    return ans;
+    dfs(0,[])
+    return ans
 };
