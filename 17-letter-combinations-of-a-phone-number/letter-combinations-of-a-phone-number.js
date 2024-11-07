@@ -18,7 +18,7 @@ var letterCombinations = function(digits) {
 
     let ans = [];
     
-    const backtrack = (index, path) => {
+    function backtrack(index, path){
         if (index === digits.length) {
             ans.push(path.join(""));
             return;
