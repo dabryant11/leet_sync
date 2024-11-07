@@ -11,23 +11,20 @@
  * @return {number}
  */
 var sumNumbers = function(root) {
-    //DFS o(N)
-    // recursive string call
-    // once the end is hit join together for a num
-    // add those nums together to get an answer
-    let ans = 0;
-    
-    const dfs = (node, path) => {
-        if (!node) return;
-        if (!node.left && !node.right) {
-            ans += path * 10 + node.val;
-            return;
-        }
-        dfs(node.left, path * 10 + node.val);
-        dfs(node.right, path * 10 + node.val);
-    };
-    
-    dfs(root, 0);
-    return ans;
+  let ans = 0
 
+  function dfs(root,path){
+    if(!root) return
+    if(!root.left && !root.right){
+        ans += path * 10 + root.val
+        return
+    } 
+    dfs(root.left,path * 10 + root.val)
+    dfs(root.right,path * 10 + root.val)
+
+  }
+
+  dfs(root,0)
+
+  return ans
 };
