@@ -12,15 +12,15 @@
  * @return {_Node}
  */
 var treeToDoublyList = function(root) {
+    let stack = []
+    let curr = root
     let head = null
     let prev = null
-    let curr = root
-    let stack = []
-
-    while (stack.length > 0 || curr){
+    
+    while ( stack.length > 0 || curr){
         while (curr){
             stack.push(curr)
-            curr = curr.left
+            curr=curr.left
         }
 
         curr = stack.pop()
@@ -32,11 +32,9 @@ var treeToDoublyList = function(root) {
         prev = curr
         curr = curr.right 
     }
-
     if(head){
         head.left = prev
-        prev.right = head 
+        prev.right = head
     }
-
     return head
 };
