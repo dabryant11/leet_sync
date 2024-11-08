@@ -19,7 +19,7 @@ var insert = function(head, insertVal) {
         return newNode
     }
     let curr = head
-    let next = curr.next
+    let next = head.next
 
     while (next !== head){
         let condition1 = (insertVal >= curr.val && insertVal <= next.val)
