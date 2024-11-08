@@ -4,6 +4,7 @@
  */
 var asteroidCollision = function(asteroids) {
     let ans = []
+    
     for (let i =0;i<asteroids.length;i++){
         let curr = asteroids[i]
         let last = ans[ans.length -1]
