@@ -11,31 +11,19 @@
  * @return {number}
  */
 var diameterOfBinaryTree = function(root) {
-    let longestPath = 0
+    let longestDepth = 0
 
     function dfs(root){
         if(!root) return 0
+        let leftDepth = dfs(root.left)
+        let rightDepth = dfs(root.right)
 
-        // if(!root.left && root.right){
-        //     longestPath = Math.max(path,longestPath)
+        longestDepth = Math.max(longestDepth,leftDepth + rightDepth)
+        return Math.max(leftDepth,rightDepth) +1
 
-        // } 
 
-        // dfs(root.left,path +1)
-        // dfs(root.right,path +1)
-
-         // Recursively find the depth of left and right subtrees
-        const leftDepth = dfs(root.left);
-        const rightDepth = dfs(root.right);
-
-        // Update the longest path found so far (diameter at this node)
-        longestPath = Math.max(longestPath, leftDepth + rightDepth);
-
-        // Return the depth of the subtree rooted at this node
-        return Math.max(leftDepth, rightDepth) + 1;
     }
 
-
     dfs(root)
-    return longestPath
+    return longestDepth
 };
