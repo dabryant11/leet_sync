@@ -11,19 +11,18 @@
  * @return {number}
  */
 var diameterOfBinaryTree = function(root) {
-    let longestDepth = 0
+    let longestPath = 0
 
     function dfs(root){
         if(!root) return 0
-        let leftDepth = dfs(root.left)
-        let rightDepth = dfs(root.right)
 
-        longestDepth = Math.max(longestDepth,leftDepth + rightDepth)
-        return Math.max(leftDepth,rightDepth) +1
+        let leftPath = dfs(root.left)
+        let rightPath = dfs(root.right)
 
-
+        longestPath = Math.max(longestPath,leftPath + rightPath)
+        return Math.max(leftPath,rightPath) + 1
     }
 
     dfs(root)
-    return longestDepth
+    return longestPath 
 };
