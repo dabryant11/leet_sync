@@ -12,10 +12,7 @@ var isValid = function(s) {
         else if (char === "[") stack.push("]");
         else if (char === "{") stack.push("}");
         else {
-            // If it's a closing bracket, check if it matches the last opened one
-            if (stack.pop() !== char) {
-                return false;
-            }
+            if (stack.pop() !== char) return false;
         }
     }
 
