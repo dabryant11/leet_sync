@@ -7,21 +7,21 @@ var isValid = function(s) {
 
     for (let i = 0; i < s.length; i++) {
         let char = s[i];
-        
-        if (char === '(') {
-            stack.push(')');
-        } else if (char === '[') {
-            stack.push(']');
-        } else if (char === '{') {
-            stack.push('}');
+
+        if (char === "(") {
+            stack.push(")");
+        } else if (char === "[") {
+            stack.push("]");
+        } else if (char === "{") {
+            stack.push("}");
         } else {
-            // Check if there's a matching opening bracket
+            // If it's a closing bracket, check if it matches the last opened one
             if (stack.pop() !== char) {
                 return false;
             }
         }
     }
 
-    // Stack should be empty if all brackets matched correctly
+    // If the stack is empty, all brackets matched correctly
     return stack.length === 0;
 };
