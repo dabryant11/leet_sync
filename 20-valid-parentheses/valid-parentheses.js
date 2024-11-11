@@ -3,19 +3,18 @@
  * @return {boolean}
  */
 var isValid = function(s) {
-    let stack = [];
+    let stack = []
 
-    for (let i = 0; i < s.length; i++) {
-        let char = s[i];
+    for ( let i =0;i<s.length;i++){
+        let char = s[i]
 
-        if (char === "(") stack.push(")");
-        else if (char === "[") stack.push("]");
-        else if (char === "{") stack.push("}");
+        if(char === "(")stack.push(")")
+        else if(char === "[")stack.push("]")
+        else if(char === "{")stack.push("}")
         else {
-            if (stack.pop() !== char) return false;
+            if(char !== stack.pop()) return false
         }
     }
 
-    // If the stack is empty, all brackets matched correctly
-    return stack.length === 0;
+    return stack.length === 0
 };
