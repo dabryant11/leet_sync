@@ -8,13 +8,10 @@ var isValid = function(s) {
     for (let i = 0; i < s.length; i++) {
         let char = s[i];
 
-        if (char === "(") {
-            stack.push(")");
-        } else if (char === "[") {
-            stack.push("]");
-        } else if (char === "{") {
-            stack.push("}");
-        } else {
+        if (char === "(") stack.push(")");
+        else if (char === "[") stack.push("]");
+        else if (char === "{") stack.push("}");
+        else {
             // If it's a closing bracket, check if it matches the last opened one
             if (stack.pop() !== char) {
                 return false;
