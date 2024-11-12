@@ -24,7 +24,7 @@ var highFive = function(items) {
         
         // Calculate the average of the top 5 grades
         let sum = topFiveGrades.reduce((acc, grade) => acc + grade, 0);
-        let avgGrade = Math.floor(sum / topFiveGrades.length);
+        let avgGrade = Math.floor(sum / 5);
         
         // Push result to answer array
         ans.push([parseInt(key), avgGrade]);
