@@ -4,13 +4,13 @@
  */
 var countAsterisks = function(s) {
     let count = 0
-    let stack = []
+    let stack = true
 
     //iterate if ast && stack is even
 
     for (let i =0;i<s.length;i++){
-        if (s[i] === "|") stack.push("|")
-        if (s[i] === "*" && stack.length % 2 === 0) count ++
+        if (s[i] === "|") stack = !stack
+        if (s[i] === "*" && stack) count ++
     }
 
 
