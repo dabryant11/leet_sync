@@ -5,25 +5,22 @@
  */
 var countPairs = function(nums, k) {
     let count = 0;
-    let map = {}; // Map to store indices of each number
+    let map = {}; // To track count of numbers seen so far
     
     for (let i = 0; i < nums.length; i++) {
         let num = nums[i];
         
-        // Check if we have previous indices for this number
-        if (map[num]) {
-            for (let j of map[num]) {
-                if (i * j % k === 0) {
-                    count++;
-                }
+        // Try to find a previous index that forms a valid pair with this number
+        // For all previous instances of `num`, check if i * j % k == 0
+        for (let j = 0; j < i; j++) {
+            if (nums[i] === nums[j] && i * j % k === 0) {
+                count++;
             }
         }
         
-        // Add the current index to the map for the current number
-        if (!map[num]) {
-            map[num] = [];
-        }
-        map[num].push(i);
+        // Track the number of occurrences of each number
+        if (!map[num]) map[num] = 0;
+        map[num]++;
     }
     
     return count;
