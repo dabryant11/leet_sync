@@ -32,7 +32,7 @@ var highFive = function(items) {
     }
 
     // Sort the answer array by student ID in ascending order
-    ans.sort((a, b) => a[0] - b[0]);
+    // ans.sort((a, b) => a[0] - b[0]);
 
     return ans;
 };
