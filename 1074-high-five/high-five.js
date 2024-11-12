@@ -3,36 +3,32 @@
  * @return {number[][]}
  */
 var highFive = function(items) {
-    let map = {};
     let ans = [];
+    let map = {};
 
-    // Step 1: Populate the map with scores for each student
+    // Organize grades by student
     for (let i = 0; i < items.length; i++) {
         let student = items[i][0];
         let grade = items[i][1];
-
         if (!map[student]) map[student] = [];
         map[student].push(grade);
     }
 
-    // Step 2: Calculate top 5 average for each student
+    // Calculate the top 5 average for each student
     for (let key of Object.keys(map)) {
-        // Sort scores in descending order to get the top 5
+        // Sort grades in descending order
         map[key].sort((a, b) => b - a);
         
-        // Sum the top 5 scores
-        let sum = 0;
-        for (let j = 0; j < 5 && j < map[key].length; j++) {
-            sum += map[key][j];
-        }
-
-        // Calculate the average of the top 5 scores
-        let avgGrade = Math.floor(sum / 5);
+        // Take the top 5 scores only
+        let topFiveGrades = map[key].slice(0, 5);
+        
+        // Calculate the average of the top 5 grades
+        let sum = topFiveGrades.reduce((acc, grade) => acc + grade, 0);
+        let avgGrade = Math.floor(sum / topFiveGrades.length);
+        
+        // Push result to answer array
         ans.push([parseInt(key), avgGrade]);
     }
-
-    // Sort the answer array by student ID in ascending order
-    // ans.sort((a, b) => a[0] - b[0]);
 
     return ans;
 };
