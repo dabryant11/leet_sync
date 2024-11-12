@@ -5,15 +5,18 @@
  * @return {number[]}
  */
 var twoOutOfThree = function(nums1, nums2, nums3) {
-    const res = []
-    const arr = new Set ([...nums1,...nums2,...nums3])
-
-    arr.forEach((val)=>{
-        if(nums1.includes(val) && nums2.includes(val) || nums1.includes(val) 
-        && nums3.includes(val) || nums2.includes(val) && nums3.includes(val)){
-            res.push(val)
-        }
-    })
-    
+    let obj={}
+    let res=[]
+    for(let num of nums1){
+        obj[num]=1
+    }
+    for(let num of nums2){
+        if(!obj[num]||obj[num]==2) obj[num]=2
+        else if(!res.includes(num)) res.push(num)
+    }
+    for(let num of nums3){
+        if(!obj[num]||obj[num]==3) obj[num]=3
+        else if(!res.includes(num)) res.push(num)
+    }
     return res
 };
