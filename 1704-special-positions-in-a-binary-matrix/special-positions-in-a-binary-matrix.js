@@ -10,16 +10,15 @@ var numSpecial = function(mat) {
     for(let i=0;i<mat.length;i++){
         for(let j=0;j<mat[i].length;j++){
             if(mat[i][j] === 1){
-                rowCount[i] ++ 
-                colCount[j] ++ 
+                rowCount[i] ++
+                colCount[j] ++
             }
         }
     }
-
     for(let i=0;i<mat.length;i++){
         for(let j=0;j<mat[i].length;j++){
-            if(mat[i][j] === 1 && rowCount[i] == 1 && colCount[j] == 1) count ++
+            if(mat[i][j] === 1 && rowCount[i] === 1 && colCount[j] === 1) count ++
         }
     }
-    return count 
+    return count
 };
