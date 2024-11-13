@@ -3,21 +3,18 @@
  * @return {number}
  */
 var secondHighest = function(s) {
-    let largestDigit = -1;
-    let secondLargestDigit = -1;
-
-    for (let char of s) {
-        if (!isNaN(char)) {
-            let digit = parseInt(char);
-
-            if (digit > largestDigit) {
-                secondLargestDigit = largestDigit;
-                largestDigit = digit;
-            } else if (digit < largestDigit && digit > secondLargestDigit) {
-                secondLargestDigit = digit;
+    let largest = -1
+    let secLargest = -1
+    for(let char of s){
+        if(!isNaN(char)){
+            let digit = parseInt(char)
+            if( digit > largest){
+                secLargest = largest
+                largest = digit
+            } else if (digit < largest && digit > secLargest){
+                secLargest = digit
             }
         }
     }
-    
-    return secondLargestDigit;
+    return secLargest
 };
