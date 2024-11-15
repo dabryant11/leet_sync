@@ -11,7 +11,7 @@
  * @return {number[]}
  */
 var postorder = function(root) {
-    if(!root) return []
+    if (!root) return []
     let ans = []
     let stack = [root]
     while(stack.length>0){
@@ -20,7 +20,6 @@ var postorder = function(root) {
         for(let child of node.children){
             stack.push(child)
         }
-    }
-
+    } 
     return ans.reverse()
 };
