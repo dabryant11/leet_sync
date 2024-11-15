@@ -12,19 +12,17 @@
  * @return {boolean}
  */
 var leafSimilar = function(root1, root2) {
-    let root1Arr = []
-    let root2Arr = []
-
+    let arr1 = []
+    let arr2 = []
 
     function dfs(root,arr){
         if(!root) return
         if(!root.left && !root.right) arr.push(root.val)
-
         dfs(root.left,arr)
         dfs(root.right,arr)
-        
     }
-    dfs(root1,root1Arr)
-    dfs(root2, root2Arr)
-    return root1Arr.join(",") === root2Arr.join(",")
+
+    dfs(root1,arr1)
+    dfs(root2,arr2)
+    return arr1.join(',') === arr2.join(',')
 };
