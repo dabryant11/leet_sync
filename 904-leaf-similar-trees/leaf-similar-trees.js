@@ -12,18 +12,19 @@
  * @return {boolean}
  */
 var leafSimilar = function(root1, root2) {
-    let root1Arr = [];
-    let root2Arr = [];
+    let root1Arr = []
+    let root2Arr = []
 
-    function dfs(root, arr) {
-        if (!root) return;
-        if (!root.left && !root.right) arr.push(root.val);  // Push leaf node value into the array
-        dfs(root.left, arr);
-        dfs(root.right, arr);
+
+    function dfs(root,arr){
+        if(!root) return
+        if(!root.left && !root.right) arr.push(root.val)
+
+        dfs(root.left,arr)
+        dfs(root.right,arr)
+        
     }
-
-    dfs(root1, root1Arr);  // Fill root1Arr with leaf nodes from root1
-    dfs(root2, root2Arr);  // Fill root2Arr with leaf nodes from root2
-
-    return root1Arr.join(",") === root2Arr.join(",");  // Compare arrays as strings
+    dfs(root1,root1Arr)
+    dfs(root2, root2Arr)
+    return root1Arr.join(",") === root2Arr.join(",")
 };
