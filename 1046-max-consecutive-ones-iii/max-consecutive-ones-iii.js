@@ -15,7 +15,7 @@ var longestOnes = function(nums, k) {
             if(nums[left] == 0) flips--
             left++
         }
-        ans = Math.max(ans,(right-left) +1)
+        ans = Math.max(ans,(right-left) + 1)
     }
 
     return ans
