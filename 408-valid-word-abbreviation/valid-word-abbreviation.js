@@ -10,12 +10,14 @@ var validWordAbbreviation = function(word, abbr) {
     while (i < word.length && j < abbr.length) {
         if (!isNaN(abbr[j]) && abbr[j] !== '0') {
             // Extract the number from abbr
-            let num = 0;
+            let num = "";
             while (j < abbr.length && !isNaN(abbr[j])) {
-                num = num * 10 + parseInt(abbr[j]);
+
+                num += abbr[j];
+                // num = num * 10 + parseInt(abbr[j]);
                 j++;
             }
-            i += num; // Skip characters in word
+            i += parseInt(num); // Skip characters in word
         } else if (word[i] === abbr[j]) {
             i++;
             j++;
