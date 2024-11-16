@@ -4,19 +4,20 @@
  * @return {number}
  */
 var longestOnes = function(nums, k) {
+    let ans = 0
     let left = 0
     let flips = 0
-    let highestStreak = 0
-
-    for (let right =0;right<nums.length;right++){
+    for (let right = 0;right<nums.length;right++){
         if(nums[right] === 0) flips ++
-
-        while (flips>k){
-            if(nums[left] === 0) flips --
+        
+        while (flips > k){
+            if(nums[left] == 0) flips --
             left ++
         }
-        highestStreak = Math.max(highestStreak,right-left +1)
+
+        ans = Math.max(ans,(right - left) +1)
     }
 
-    return highestStreak
+    return ans
+    
 };
