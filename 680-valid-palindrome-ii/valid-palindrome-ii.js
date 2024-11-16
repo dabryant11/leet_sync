@@ -3,9 +3,11 @@
  * @return {boolean}
  */
 var validPalindrome = function(s) {
-    const isPalindromeRange = (left, right) => {
+    const isPalindrome = (str, left, right) => {
         while (left < right) {
-            if (s[left] !== s[right]) return false;
+            if (str[left] !== str[right]) {
+                return false;
+            }
             left++;
             right--;
         }
@@ -18,12 +20,11 @@ var validPalindrome = function(s) {
     while (left < right) {
         if (s[left] !== s[right]) {
             // Try skipping either the left or the right character
-            return isPalindromeRange(left + 1, right) || isPalindromeRange(left, right - 1);
+            return isPalindrome(s, left + 1, right) || isPalindrome(s, left, right - 1);
         }
         left++;
         right--;
     }
 
-    return true;
+    return true; // The string is already a palindrome
 };
-
