@@ -4,22 +4,19 @@
  */
 var minRemoveToMakeValid = function(s) {
     let stack = []
-    let str = s.split("")
+    let sArr = s.split("")
 
-    for ( let i=0;i<s.length;i++){
-        let ch = s[i]
-        if (ch == "(") stack.push(i)
-        else {
-            if (ch == ")") {
-                if (stack.length) stack.pop()
-                else str[i] = ""
-            }
-        }
-    }
-    for (let i of stack ){
-        str[i] = ""
-    
+    for(let i=0;i<sArr.length;i++){
+        if(sArr[i] === "(") stack.push(i)
+        if(sArr[i] === ")"){
+            if (stack.length) stack.pop()
+            else sArr[i] = ""
+        } 
     }
 
-    return str.join("")
+    for(let i of stack){
+        sArr[i] = ""
+    }
+
+    return sArr.join("")
 };
