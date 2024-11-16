@@ -1,9 +1,10 @@
-/**
- * @param {number[]} nums
- * @param {number} k
- * @return {number}
- */
 var findKthLargest = function(nums, k) {
-    nums.sort((a,b) => b-a)
-    return nums[k-1]
+    const minPriQue = new MinPriorityQueue();
+    for(let i = 0; i < nums.length; i++){
+        minPriQue.enqueue(nums[i]);
+        if(minPriQue.size() > k){
+            minPriQue.dequeue();
+        }
+    }
+    return minPriQue.front().element;
 };
