@@ -7,19 +7,22 @@ var insert = function(intervals, newInterval) {
     let n = intervals.length
     let i = 0
     let ans = []
-
-    while ( i<n && intervals[i][1] < newInterval[0]){
+//no overlap
+    while (i<n && intervals[i][1] < newInterval[0]){
         ans.push(intervals[i])
-        i ++
+        i++
     }
-    while ( i<n && intervals[i][0] <= newInterval[1]){
-        newInterval[0] = Math.min(intervals[i][0],newInterval[0])
-        newInterval[1] = Math.max(intervals[i][1],newInterval[1])
+
+    //overlap - find the merge
+    while (i<n && intervals[i][0] <= newInterval[1]){
+        newInterval[0] = Math.min(newInterval[0],intervals[i][0])
+        newInterval[1] = Math.max(newInterval[1],intervals[i][1])
         i++
     }
 
     ans.push(newInterval)
-    while ( i<n){
+    /// remainders
+    while (i<n){
         ans.push(intervals[i])
         i++
     }
