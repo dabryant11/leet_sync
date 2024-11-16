@@ -7,6 +7,7 @@ var insert = function(intervals, newInterval) {
     let result = [];
     let i = 0;
     let n = intervals.length;
+    
 
     // Step 1: Add all intervals that come before the newInterval
     while (i < n && intervals[i][1] < newInterval[0]) {
