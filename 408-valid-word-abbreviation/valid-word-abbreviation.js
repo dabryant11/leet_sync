@@ -12,9 +12,7 @@ var validWordAbbreviation = function(word, abbr) {
             // Extract the number from abbr
             let num = "";
             while (j < abbr.length && !isNaN(abbr[j])) {
-
                 num += abbr[j];
-                // num = num * 10 + parseInt(abbr[j]);
                 j++;
             }
             i += parseInt(num); // Skip characters in word
