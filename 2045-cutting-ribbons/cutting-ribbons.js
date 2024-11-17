@@ -5,20 +5,19 @@
  */
 var maxLength = function(ribbons, k) {
     let countPieces = (len) => {
-        return ribbons.reduce((acc,curr) => acc + Math.floor(curr/len), 0)
+        return ribbons.reduce((acc,curr) => acc+Math.floor(curr/len),0)
     }
 
     let left = 1
     let right = Math.max(...ribbons)
-    let result = 0
+    let result=0
 
-    while (left <= right){
-        let mid = Math.floor((right + left) / 2)
+    while ( left <= right){
+        let mid = Math.floor((left + right) /2)
         if(countPieces(mid) >= k){
             result = mid
-            left = mid + 1
-        } else right = mid -1
+            left = mid +1
+        } else right = mid - 1 
     }
-
     return result
 };
