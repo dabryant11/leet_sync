@@ -11,26 +11,20 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-    // bfs
-    /// at end of each level ppush val to arr
-    // return arr
-    // TC oN
-    // SC oW
     if (!root) return []
-
+    
     let ans = []
     let queue = [root]
 
-
-    while(queue.length > 0){
+    while ( queue.length > 0){
         let levelSize = queue.length
-        for(let i =0; i< levelSize;i++ ){
+
+        for(let i =0;i<levelSize;i++){
             let node = queue.shift()
-            if ( i === levelSize - 1) ans.push(node.val)
-            if (node.left) queue.push(node.left)
-            if (node.right) queue.push(node.right)
+            if(i === levelSize -1) ans.push(node.val) 
+            if(node.left) queue.push(node.left)
+            if(node.right) queue.push(node.right)
         }
     }
-
     return ans
 };
