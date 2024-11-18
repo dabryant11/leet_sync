@@ -39,6 +39,7 @@ var getDepth = function (node) {
     let depth = 0;
     while (node) {
         node = node.parent;
+        console.log("node",node)
         depth++;
     }
     
