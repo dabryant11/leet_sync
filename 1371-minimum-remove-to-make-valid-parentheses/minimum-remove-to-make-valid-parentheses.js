@@ -3,20 +3,28 @@
  * @return {string}
  */
 var minRemoveToMakeValid = function(s) {
-    let stack = []
+    // change to arr
+    // stack
+    // push pop re assign remainders
     let sArr = s.split("")
+    let stack = []
 
     for(let i=0;i<sArr.length;i++){
-        if(sArr[i] === "(") stack.push(i)
-        if(sArr[i] === ")"){
-            if (stack.length) stack.pop()
-            else sArr[i] = ""
-        } 
+        let ch = sArr[i]
+        if(ch == "(") stack.push(i)
+        if(ch == ")") {
+            if(stack.length > 0) stack.pop()
+            else {
+                // if(ch == "(") stack.push(i)
+                sArr[i] = ""
+            }
+        }
     }
 
-    for(let i of stack){
+    for ( let i of stack){
         sArr[i] = ""
     }
+
 
     return sArr.join("")
 };
