@@ -9,6 +9,6 @@ var majorityElement = function(nums) {
     for ( let num of nums){
         if(!map[num]) map[num] = 0
         map[num] ++
-        if (map[num] > majority) return parseInt(num)
+        if (map[num] > majority) return num
     }
 };
