@@ -9,7 +9,7 @@ var kClosest = function(points, k) {
     for (let i of points) {
         var distance = i[0] * i[0] + i[1] * i[1];
         heap.enqueue([distance, i]);
-        if (heap.size() > k) heap.dequeue();
+        while (heap.size() > k) heap.dequeue();
     }
 
     var result = [];
