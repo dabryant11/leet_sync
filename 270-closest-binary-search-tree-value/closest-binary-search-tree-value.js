@@ -14,14 +14,12 @@
 var closestValue = function(root, target) {
     let closest = root.val
 
-    while (root !== null){
 
-        if (Math.abs(target - closest) > Math.abs(target - root.val) || 
-        (Math.abs(target - closest) === Math.abs(target - root.val) && root.val < closest)) {
-            closest = root.val;
+    while ( root !== null){
+        if(Math.abs(target - closest) > Math.abs(target - root.val) || Math.abs(target - closest) === Math.abs(target - root.val) && root.val < closest){
+            closest = root.val
         }
-        
-        if ( root.val > target) root = root.left
+        if(root.val > target) root = root.left
         else root = root.right
     }
     return closest
