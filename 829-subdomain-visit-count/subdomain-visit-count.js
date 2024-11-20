@@ -3,20 +3,24 @@
  * @return {string[]}
  */
 var subdomainVisits = function(cpdomains) {
-    const map = new Map()
+    let map = new Map()
 
-    for (let domain of cpdomains) {
-        const [visits, fullDomain] = domain.split(" ")
-        const subdomains  = fullDomain.split(".")
+    for ( let domain of cpdomains){
+        let [count, fullDomain] = domain.split(" ")
+        let subDomains = fullDomain.split(".")
 
-        while (subdomains.length) {
-            const domain = subdomains.join(".")
-            if (map.has(domain)) {
-                const curr = map.get(domain)
-                map.set(domain, Number(curr) + Number(visits))
-            } else map.set(domain, Number(visits))
-            subdomains.shift()
+        while (subDomains.length){
+            let domain = subDomains.join(".")
+            if(map.has(domain)){
+                let curr = map.get(domain) 
+                map.set(domain, Number(curr)+ Number(count))
+            } else {
+                map.set(domain, Number(count))
+            }
+                subDomains.shift()
         }
     }
-    return  Array.from(map, ([key,value]) => `${value} ${key}`)
+
+    return Array.from(map, ([key, value]) => `${value} ${key}`)
+
 };
