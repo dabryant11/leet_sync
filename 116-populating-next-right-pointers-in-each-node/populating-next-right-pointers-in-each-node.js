@@ -13,18 +13,18 @@
  * @return {_Node}
  */
 var connect = function(root) {
-    if (root == null) return root;
+    if(!root) return null
 
-    let queue = [root];
-    while(queue.length!=0) {
-        let next = [];
-        while(queue.length!=0) {
-            let node = queue.shift();
-            node.next = queue[0]||null;
-            if (node.left!=null) next.push(node.left)
-            if (node.right!=null) next.push(node.right)
+    let queue = [root]
+    while (queue.length >0){
+        let next = []
+        while (queue.length >0){
+            let node = queue.shift()
+            node.next = queue[0] || null
+            if(node.left) next.push(node.left)
+            if(node.right) next.push(node.right)
         }
-        queue = next;
+        queue = next
     }
-    return root;
+    return root
 };
