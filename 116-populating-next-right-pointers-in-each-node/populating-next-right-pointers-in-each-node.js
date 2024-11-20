@@ -16,9 +16,10 @@ var connect = function(root) {
     if(!root) return null
 
     let queue = [root]
-    while (queue.length >0){
+
+    while(queue.length> 0){
         let next = []
-        while (queue.length >0){
+        while(queue.length> 0){
             let node = queue.shift()
             node.next = queue[0] || null
             if(node.left) next.push(node.left)
@@ -26,5 +27,6 @@ var connect = function(root) {
         }
         queue = next
     }
+
     return root
 };
