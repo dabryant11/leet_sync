@@ -4,27 +4,18 @@
  */
 var subdomainVisits = function(cpdomains) {
     let map = new Map()
-    
-    
-    for(let domain of cpdomains){
-        let newCPD =  domain.split(" ")
-        let visits = newCPD[0]
-        let fullDomain = newCPD[1]
-        let subDomains = fullDomain.split(".")
 
-            while(subDomains.length){
-                let domain = subDomains.join(".")
-                if(map.has(domain)){
-                    let currDomainVisits = map.get(domain)
-                    map.set(domain, Number(currDomainVisits) + Number(visits) )
-                }
-                else {
-                    map.set(domain,Number(visits))
-                }
-                subDomains.shift()
-            }
+    for ( let domain of cpdomains){
+        let splitD = domain.split(" ")
+        let visits = splitD[0]
+        let subD = splitD[1].split(".")
+        while (subD.length > 0){
+            let currD = subD.join(".")
+            if(map.has(currD)){
+                map.set(currD, Number(visits) + map.get(currD))
+            } else map.set(currD, Number(visits))
+            subD.shift()
+        }
     }
-
-
     return Array.from(map,([key,value]) => `${value} ${key}`)
 };
