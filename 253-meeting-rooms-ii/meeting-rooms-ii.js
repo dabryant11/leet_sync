@@ -10,7 +10,7 @@ var minMeetingRooms = function(intervals) {
     for(let i =0; i<intervals.length; i++){
         let interval = intervals[i]
 
-        if(finish.size() <= 0) rooms ++
+        if(!finish.size()) rooms ++
         else {
             let front = finish.front().element
             if (front <= interval[0]) finish.dequeue()
