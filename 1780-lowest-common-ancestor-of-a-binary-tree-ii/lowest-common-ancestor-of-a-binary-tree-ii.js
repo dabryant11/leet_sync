@@ -15,21 +15,19 @@ var lowestCommonAncestor = function(root, p, q) {
     let result = null
 
     function dfs(node){
-        if ( !node) return false
+        if(!node) return false
 
         let left = dfs(node.left)
         let right = dfs(node.right)
 
-        let curr = p === node || q === node
+        let curr = node == p || node == q
 
-        if((left && right) || curr &&(left || right)){
-            result = node 
+        if((left && right) || curr && (left || right)){
+            result = node
         }
-        
-        
+
         return left || right || curr
     }
-
     dfs(root)
     return result
 };
