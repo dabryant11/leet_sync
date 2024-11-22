@@ -4,7 +4,8 @@
  */
 
  var rotate = function(matrix) {
-    let n = matrix.length, depth = ~~(n / 2)
+    let n = matrix.length
+    let depth = Math.floor(n / 2)
     for (let i = 0; i < depth; i++) {
         let len = n - 2 * i - 1
         let opp = n - 1 - i
