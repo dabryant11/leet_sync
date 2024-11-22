@@ -12,27 +12,27 @@
  * @return {number[]}
  */
 var distanceK = function(root, target, k) {
-    function addParents(root,parent = null){
-        if(!root)return
+    function addParent(root, parent = null){
+        if(!root) return
         root.parent = parent
-        addParents(root.left,root)
-        addParents(root.right,root)
+        addParent(root.left,root)
+        addParent(root.right,root)
+    }
+    function getDepth(node,depth=0){
+        if(!node || depth > k) return
+        if(visited.has(node)) return
+        if(depth == k) res.push(node.val)
+        visited.add(node) 
+
+        getDepth(node.left,depth+1)
+        getDepth(node.right,depth+1)
+        getDepth(node.parent,depth+1)
     }
 
-    function getDepth(root,depth = 0){
-        if(!root || depth > k) return
-        if(visited.has(root)) return
-        if(depth === k ) res.push(root.val)
-        visited.add(root) 
-
-        getDepth(root.left,depth+1)
-        getDepth(root.right,depth+1)
-        getDepth(root.parent,depth+1)
-    }
-
-    let visited = new Set()
+    addParent(root)
     let res = []
-    addParents(root)
+    let visited = new Set()
+    
     getDepth(target)
 
     return res
