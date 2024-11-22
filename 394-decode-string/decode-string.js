@@ -3,29 +3,30 @@
  * @return {string}
  */
 var decodeString = function(s) {
+    let stack = []
 
-   let stack = []
-    for (let ch of s){
-        if (ch !== "]"){
+    for ( let ch of s){
+        if ( ch !== "]"){
             stack.push(ch)
             continue
         }
-        let currChar = stack.pop()
+
+        let currCh = stack.pop()
         let innerString = ""
-        while (currChar !== "["){
-            innerString = currChar + innerString
-            currChar = stack.pop()
+        while ( currCh !== "["){
+            innerString = currCh + innerString
+            currCh = stack.pop() 
         }
-        
-        currChar = stack.pop()
-        let multiplier = ''
-        while (!Number.isNaN(Number(currChar))){
-            multiplier = currChar + multiplier
-            currChar = stack.pop()
+         currCh = stack.pop()
+        let multiplier = ""
+        while (!Number.isNaN(Number(currCh))){
+            multiplier = currCh + multiplier
+            currCh = stack.pop() 
         }
-        stack.push(currChar)
-        stack.push(innerString.repeat(Number(multiplier)))
+            
+            stack.push(currCh)
+            stack.push(innerString.repeat(Number(multiplier)))
     }
 
-   return stack.join("")
+    return stack.join("")
 };
