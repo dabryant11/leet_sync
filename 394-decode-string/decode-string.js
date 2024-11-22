@@ -2,24 +2,29 @@
  * @param {string} s
  * @return {string}
  */
-const decodeString = s => {
-  const stack = [];
-  for (const char of s) {
-    if (char !== "]") { stack.push(char); continue; }
-    let cur = stack.pop();
-    let str = '';
-    while (cur !== '[') {
-      str = cur + str;
-      cur = stack.pop();
+var decodeString = function(s) {
+
+    const stack = []
+    for(const char of s) {
+        if(char !== "]") {
+            stack.push(char)
+            continue
+        }
+        let currentChar = stack.pop()
+        let innerString = ""
+        while(currentChar !== "[") {
+            innerString = currentChar + innerString
+            currentChar = stack.pop()
+        }
+        currentChar = stack.pop()
+        let multiplier = ""
+        while(!Number.isNaN(Number(currentChar))) {
+            multiplier = currentChar + multiplier
+            currentChar = stack.pop()
+        }
+        stack.push(currentChar)
+        stack.push(innerString.repeat(Number(multiplier)))
     }
-    let num = '';
-    cur = stack.pop();
-    while (!Number.isNaN(Number(cur))) {
-      num = cur + num;
-      cur = stack.pop();
-    }
-    stack.push(cur);
-    stack.push(str.repeat(Number(num)));
-  }
-  return stack.join('');
+    
+    return stack.join('')
 };
