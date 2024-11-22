@@ -11,38 +11,32 @@
  * @param {number} k
  * @return {number[]}
  */
-const distanceK = (root, target, k) => {
-    // add parent pointers to tree
-    const addParents = (node, parent = null) => {
-        if (!node) return;
-        node.parent = parent;
-        addParents(node.left, node);
-        addParents(node.right, node);
+var distanceK = function(root, target, k) {
+
+    function addParents(root, parent = null){
+        if (!root) return
+        root.parent = parent
+        addParents(root.left,root)
+        addParents(root.right,root)
     }
-    // find all vals k distance from target
-    const getDist = (node, dist = 0) => {
-        // is null node or too far from node
-        if (!node || dist > k) return;
-        // is already visited
-        if (visited.has(node)) return
-
-        // correct distance away from target, save
-        if (dist === k) res.push(node.val);
-
-        // mark node as visited
-        visited.add(node);
     
-        // explore all directions from target
-        getDist(node.left, dist + 1);
-        getDist(node.right, dist + 1);
-        getDist(node.parent, dist + 1);
-    }
+    function getDepth(root, depth = 0){
+        if(!root || depth > k) return
+        if(visited.has(root)) return
+        
+        if(depth == k) res.push(root.val)
 
-    // DFS twice through tree
-    addParents(root);
-    const res = [];
-    const visited = new Set();
-    getDist(target);
-    // return all nodes k distance from target
-    return res;
+        visited.add(root)
+        
+
+        getDepth(root.left, depth+ 1)
+        getDepth(root.right, depth+ 1)
+        getDepth(root.parent, depth+ 1)
+    }
+    addParents(root)
+    let res = []
+    let visited = new Set()
+    getDepth(target)
+
+    return res
 };
