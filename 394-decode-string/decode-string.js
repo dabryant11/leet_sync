@@ -4,27 +4,28 @@
  */
 var decodeString = function(s) {
 
-    const stack = []
-    for(const char of s) {
-        if(char !== "]") {
-            stack.push(char)
+   let stack = []
+    for (let ch of s){
+        if (ch !== "]"){
+            stack.push(ch)
             continue
         }
-        let currentChar = stack.pop()
+        let currChar = stack.pop()
         let innerString = ""
-        while(currentChar !== "[") {
-            innerString = currentChar + innerString
-            currentChar = stack.pop()
+        while (currChar !== "["){
+            innerString = currChar + innerString
+            currChar = stack.pop()
         }
-        currentChar = stack.pop()
-        let multiplier = ""
-        while(!Number.isNaN(Number(currentChar))) {
-            multiplier = currentChar + multiplier
-            currentChar = stack.pop()
+        
+        currChar = stack.pop()
+        let multiplier = ''
+        while (!Number.isNaN(Number(currChar))){
+            multiplier = currChar + multiplier
+            currChar = stack.pop()
         }
-        stack.push(currentChar)
+        stack.push(currChar)
         stack.push(innerString.repeat(Number(multiplier)))
     }
-    
-    return stack.join('')
+
+   return stack.join("")
 };
