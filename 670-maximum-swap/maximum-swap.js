@@ -14,7 +14,7 @@ var maximumSwap = function(num) {
         for(let digit =9; digit> arr[i]; digit--){
             if(lastIndex[digit] > i){
                 [arr[i], arr[lastIndex[digit]]] = [arr[lastIndex[digit]], arr[i]]
-                return +arr.join("")
+                return Number(arr.join(""))
             }
         }
     }
