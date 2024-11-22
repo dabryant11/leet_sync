@@ -13,32 +13,26 @@
  */
 var lowestCommonAncestor = function (root, p, q) {
   let result = null;
-  let foundP = false;
-  let foundQ = false;
+
   const dfs = (node) => {
-    if (node === null) {
-      return false;
-    }
-    let left = dfs(node.left);
-    let right = dfs(node.right);
-    // does node equal p or q and return boolean
-    let cur = node === p || node === q;
-    if (cur) {
-      if (node === p) {
-        foundP = true;
-      }
-      if (node === q) {
-        foundQ = true;
-      }
-    }
-    if (left + right + cur >= 2) {
+    if (!node) return false;
+
+    // Recursively search in the left and right subtrees
+    const left = dfs(node.left);
+    const right = dfs(node.right);
+
+    // Check if the current node is either p or q
+    const cur = node === p || node === q;
+
+    // If any two of the three flags are true, the current node is the LCA
+    if ((left && right) || (cur && (left || right))) {
       result = node;
     }
+
+    // Return true if this node is either p or q, or if either subtree contains p or q
     return left || right || cur;
   };
+
   dfs(root);
-  if (foundP && foundQ) {
-    return result;
-  }
-  return null;
+  return result;
 };
