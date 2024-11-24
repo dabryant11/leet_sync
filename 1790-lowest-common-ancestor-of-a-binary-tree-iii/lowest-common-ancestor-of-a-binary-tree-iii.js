@@ -16,31 +16,28 @@
 var lowestCommonAncestor = function(p, q) {
     let firstDepth = getDepth(p)
     let secDepth = getDepth(q)
-    while ( firstDepth !== secDepth ){
+
+    while ( firstDepth !== secDepth){
         if(firstDepth > secDepth){
+            p = p.parent
             firstDepth --
-           p = p.parent
         } else {
-            secDepth --
             q = q.parent
+            secDepth --
         }
     }
-
-    while ( p !== q){
+    while (p !== q){
         p = p.parent
         q = q.parent
     }
     return p
-}
-
-
-    function getDepth(node){
-        // if(!node) return
-        let depth = 0
-        while (node){
-            node = node.parent
-            depth++
-        }
-        return depth
-    
 };
+
+function getDepth(root){
+    let depth = 0
+    while(root){
+        root = root.parent
+        depth++
+    }
+    return depth
+}
