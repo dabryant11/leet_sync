@@ -5,16 +5,22 @@
 var isValid = function(s) {
     let stack = []
 
-    for ( let i =0;i<s.length;i++){
-        let char = s[i]
-
-        if(char === "(")stack.push(")")
-        else if(char === "[")stack.push("]")
-        else if(char === "{")stack.push("}")
+    for (let char of s){
+        if(char == "(" || char == "[" || char == "{") stack.push(char)
         else {
-            if(char !== stack.pop()) return false
+            if(char == ")" ){
+                let prev = stack.pop()
+                if (prev !== "(") return false
+            }
+            if(char == "]" ){
+                let prev = stack.pop()
+                if (prev !== "[") return false
+            }
+            if(char == "}" ) {
+                let prev = stack.pop()
+                if (prev !== "{") return false
+            }           
         }
     }
-
-    return stack.length === 0
+    return stack.length == 0
 };
