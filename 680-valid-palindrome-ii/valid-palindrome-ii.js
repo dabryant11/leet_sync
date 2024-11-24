@@ -2,16 +2,24 @@
  * @param {string} s
  * @return {boolean}
  */
-const validPalindrome = (s) => {
-    for (let i = 0, stop = s.length / 2; i < stop; i++) {
-        let j = s.length - i - 1
-        if (s[i] !== s[j]) {
-            return isPalindrome(cut(s, i)) || isPalindrome(cut(s, j))
+var validPalindrome = function(s) {
+    let left = 0
+    let right = s.length -1
+    while ( left < right){
+        if (s[left] !== s[right]) {
+            return isPalindrome(s, left +1, right) || isPalindrome(s, left, right -1)
         }
+        left ++
+        right --
     }
     return true
 };
 
-const cut = (s, i) => s.substr(0, i) + s.substr(i + 1);
-
-const isPalindrome = (s) => s === s.split('').reverse().join('');
+function isPalindrome(s, left, right){
+    while ( left < right){
+        if (s[left] !== s[right]) return false
+        left ++
+        right --
+    }
+    return true
+}
