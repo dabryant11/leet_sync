@@ -3,16 +3,16 @@
  * @return {number[]}
  */
 var findBuildings = function(heights) {
-    let minHeight = 0
+    let maxHeight = 0
     let ans = []
-    for (let i = heights.length-1;i>=0;i--){
-        let curr = heights[i]
-        if(curr > minHeight) {
-            ans.unshift(i)
-            minHeight = curr
 
+    for(let i = heights.length -1; i>=0;i--){
+        if(heights[i] > maxHeight){
+            ans.unshift(i)
+            maxHeight = heights[i]
         }
     }
-    // return ans.sort((a,b) => a-b)
-    return ans
+    
+    return ans 
+
 };
