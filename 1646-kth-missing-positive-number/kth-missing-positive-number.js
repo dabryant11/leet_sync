@@ -4,18 +4,15 @@
  * @return {number}
  */
 var findKthPositive = function(arr, k) {
-   let missingNum = 0
-   let curr = 1
-   let idx = 0
+    let curr = 1
+    let missingNum = 0
+    let i = 0
 
-   while (missingNum < k){
-        if (arr[idx] !== curr){
-            missingNum++
-            if(missingNum == k) return curr
-        } else {
-            idx++
-        }
-        curr++
-   }
-
+    while ( missingNum < k){
+        if(curr !== arr[i]){
+            missingNum ++
+            if(missingNum === k) return curr
+        } else i ++
+        curr ++
+    }
 };
