@@ -30,7 +30,7 @@ var lowestCommonAncestor = function(p, q) {
         p = p.parent
         q = q.parent
     }
-    return p
+    return q
 };
 
 function getDepth(root){
