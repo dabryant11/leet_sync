@@ -3,19 +3,15 @@
  * @return {number}
  */
 var minAddToMakeValid = function(s) {
-    let ans = 0
+    let stack = []
+    let splitS = s.split("")
     let extra = 0
-
-    for ( let i=0;i<s.length;i++){
-        if(s[i] === "(") ans ++
-        else if(s[i] === ")"){
-            if(ans <=0){
-                extra++
-            } else ans --
-        } 
+    for(let i =0;i<splitS.length;i++){
+        if(splitS[i] === "(")stack.push(i)
+        else if ( splitS[i] === ")"){
+            if(stack.length> 0) stack.pop()
+            else extra++
+        }
     }
-
-    return ans + extra
-
-
+    return extra + stack.length
 };
