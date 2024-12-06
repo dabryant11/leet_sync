@@ -15,14 +15,15 @@ var diameterOfBinaryTree = function(root) {
 
     function dfs(root){
         if(!root) return 0
-
-        let leftPath = dfs(root.left)
+    
         let rightPath = dfs(root.right)
+        let leftPath = dfs(root.left)
 
-        longestPath = Math.max(longestPath,leftPath + rightPath)
-        return Math.max(leftPath,rightPath) + 1
+        longestPath = Math.max(longestPath, rightPath + leftPath)
+        return Math.max(leftPath,rightPath) +1 
+        
     }
 
     dfs(root)
-    return longestPath 
+    return longestPath
 };
