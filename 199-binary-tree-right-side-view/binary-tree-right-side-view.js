@@ -11,19 +11,17 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-    if (!root) return []
-    
-    let ans = []
+    if(!root) return []
     let queue = [root]
+    let ans = []
 
     while ( queue.length > 0){
         let levelSize = queue.length
-
         for(let i =0;i<levelSize;i++){
-            let node = queue.shift()
-            if(i === levelSize -1) ans.push(node.val) 
-            if(node.left) queue.push(node.left)
-            if(node.right) queue.push(node.right)
+            let currNode = queue.shift()
+            if(i == levelSize -1) ans.push(currNode.val)
+            if(currNode.left) queue.push(currNode.left)
+            if(currNode.right) queue.push(currNode.right)
         }
     }
     return ans
